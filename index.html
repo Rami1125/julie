@@ -1,892 +1,800 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#070418" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>מזל טוב ג'ולי 🎉 - מתנת יום הולדת מרמי</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <style>
-    :root {
-      --bg: #070418;
-      --card: #0f1224;
-      --accent: #ff4da6;
-      --gold: #ffd700;
-      --neon: #00fff3;
-      --purple: #a78bfa;
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Rubik', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
-      padding: 0;
-      background: radial-gradient(900px 400px at 10% 10%, rgba(0,255,243,0.03), transparent), 
-                  linear-gradient(180deg, #05030a, #070418);
-      color: #fff;
-      direction: rtl;
-      overflow-x: hidden;
-      -webkit-tap-highlight-color: transparent;
-    }
-    
-    .app {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      position: relative;
-    }
-    
-    /* Floating background elements */
-    .bg-elements {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    .bg-element {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.1;
-      filter: blur(40px);
-    }
-    
-    .bg-1 {
-      width: 300px;
-      height: 300px;
-      background: var(--neon);
-      top: 10%;
-      right: 5%;
-    }
-    
-    .bg-2 {
-      width: 200px;
-      height: 200px;
-      background: var(--accent);
-      bottom: 15%;
-      left: 10%;
-    }
-    
-    .bg-3 {
-      width: 150px;
-      height: 150px;
-      background: var(--gold);
-      top: 50%;
-      right: 20%;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מזל טוב ג'ולי! 🎉 - מתנת יום הולדת מרמי</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        :root {
+            --bg: #070418;
+            --card: #0f1224;
+            --accent: #ff4da6;
+            --gold: #ffd700;
+            --neon: #00fff3;
+            --purple: #a78bfa;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html, body {
+            height: 100%;
+            font-family: 'Rubik', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+            background: radial-gradient(900px 400px at 10% 10%, rgba(0,255,243,0.03), transparent), 
+                        linear-gradient(180deg, #05030a, #070418);
+            color: #fff;
+            direction: rtl;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .app {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            position: relative;
+        }
+        
+        /* Floating background elements */
+        .bg-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(40px);
+        }
+        
+        .bg-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--neon);
+            top: 10%;
+            right: 5%;
+        }
+        
+        .bg-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            bottom: 15%;
+            left: 10%;
+        }
+        
+        .bg-3 {
+            width: 150px;
+            height: 150px;
+            background: var(--gold);
+            top: 50%;
+            right: 20%;
+        }
 
-    /* Card */
-    .card {
-      width: 100%;
-      max-width: 500px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 14px 60px rgba(0,0,0,0.7);
-      position: relative;
-      overflow: hidden;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.05);
-    }
+        /* Card */
+        .card {
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 14px 60px rgba(0,0,0,0.7);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
 
-    /* Neon title */
-    .neon-wrap {
-      text-align: center;
-      margin-bottom: 8px;
-    }
-    
-    .neon {
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: var(--neon);
-      text-shadow: 0 0 6px rgba(0,255,243,0.6), 0 0 18px rgba(0,255,243,0.15);
-      animation: neonPulse 1.6s ease-in-out infinite;
-    }
-    
-    @keyframes neonPulse {
-      0% { filter: brightness(0.9); }
-      50% { filter: brightness(1.6); }
-      100% { filter: brightness(0.95); }
-    }
+        /* Neon title */
+        .neon-wrap {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .neon {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--neon);
+            text-shadow: 0 0 6px rgba(0,255,243,0.6), 0 0 18px rgba(0,255,243,0.15);
+            animation: neonPulse 1.6s ease-in-out infinite;
+        }
+        
+        @keyframes neonPulse {
+            0% { filter: brightness(0.9); }
+            50% { filter: brightness(1.6); }
+            100% { filter: brightness(0.95); }
+        }
 
-    h1 {
-      margin: 6px 0 4px;
-      font-size: 22px;
-    }
-    
-    .sub {
-      color: #cfc9ffcc;
-      font-size: 14px;
-      margin-bottom: 12px;
-      line-height: 1.4;
-    }
+        h1 {
+            margin: 6px 0 4px;
+            font-size: 22px;
+        }
+        
+        .sub {
+            color: #cfc9ffcc;
+            font-size: 14px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
 
-    .message {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #f3f0ff;
-    }
-    
-    .twins {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #ffdede;
-      background: rgba(255, 222, 222, 0.1);
-      padding: 8px 12px;
-      border-radius: 10px;
-      border-right: 3px solid var(--accent);
-    }
+        .message {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #f3f0ff;
+        }
+        
+        .twins {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ffdede;
+            background: rgba(255, 222, 222, 0.1);
+            padding: 8px 12px;
+            border-radius: 10px;
+            border-right: 3px solid var(--accent);
+        }
 
-    /* Center reveal button */
-    .center-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 18px;
-    }
-    
-    .glow-btn {
-      background: linear-gradient(90deg, #ffd97a, #ffd700);
-      border-radius: 14px;
-      padding: 14px 20px;
-      font-weight: 800;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 8px 30px rgba(255,215,0,0.12);
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      font-size: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    
-    .glow-btn:active {
-      transform: scale(0.98);
-      box-shadow: 0 4px 15px rgba(255,215,0,0.2);
-    }
-    
-    .glow-btn .shine {
-      position: absolute;
-      left: -60%;
-      top: 0;
-      width: 40%;
-      height: 200%;
-      transform: skewX(-20deg);
-      background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0.05));
-      opacity: 0.85;
-      animation: shimmer 2.2s linear infinite;
-    }
-    
-    @keyframes shimmer {
-      0% { left: -60%; }
-      50% { left: 160%; }
-      100% { left: -60%; }
-    }
-    
-    .glow-btn .text {
-      position: relative;
-      z-index: 2;
-      color: #2b1c00;
-    }
+        /* Center reveal button */
+        .center-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 18px;
+        }
+        
+        .glow-btn {
+            background: linear-gradient(90deg, #ffd97a, #ffd700);
+            border-radius: 14px;
+            padding: 14px 20px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(255,215,0,0.12);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .glow-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 4px 15px rgba(255,215,0,0.2);
+        }
+        
+        .glow-btn .shine {
+            position: absolute;
+            left: -60%;
+            top: 0;
+            width: 40%;
+            height: 200%;
+            transform: skewX(-20deg);
+            background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0.05));
+            opacity: 0.85;
+            animation: shimmer 2.2s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -60%; }
+            50% { left: 160%; }
+            100% { left: -60%; }
+        }
+        
+        .glow-btn .text {
+            position: relative;
+            z-index: 2;
+            color: #2b1c00;
+        }
 
-    /* Hidden card with button center */
-    .gift-card {
-      margin-top: 18px;
-      border-radius: 14px;
-      background: linear-gradient(90deg, #081025, #0b1222);
-      padding: 16px;
-      text-align: center;
-      position: relative;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .gift-cover {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding: 22px;
-      border-radius: 12px;
-      cursor: pointer;
-    }
-    
-    .cover-btn {
-      display: inline-block;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      border: 2px dashed rgba(255,255,255,0.1);
-      font-weight: 700;
-      color: white;
-      margin-top: 10px;
-      transition: all 0.3s;
-    }
-    
-    .cover-btn:active {
-      background: rgba(255,255,255,0.1);
-      transform: scale(0.95);
-    }
+        /* Hidden card with button center */
+        .gift-card {
+            margin-top: 18px;
+            border-radius: 14px;
+            background: linear-gradient(90deg, #081025, #0b1222);
+            padding: 16px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .gift-cover {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            padding: 22px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        
+        .cover-btn {
+            display: inline-block;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 2px dashed rgba(255,255,255,0.1);
+            font-weight: 700;
+            color: white;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .cover-btn:active {
+            background: rgba(255,255,255,0.1);
+            transform: scale(0.95);
+        }
 
-    /* Modal / voucher */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(180deg, rgba(2,2,6,0.6), rgba(2,2,6,0.88));
-      backdrop-filter: blur(6px);
-      visibility: hidden;
-      opacity: 0;
-      transition: all .25s ease;
-      z-index: 1200;
-      padding: 16px;
-    }
-    
-    .modal.show {
-      visibility: visible;
-      opacity: 1;
-    }
-    
-    .modal-inner {
-      width: 100%;
-      max-width: 500px;
-      background: linear-gradient(135deg, #07102a, #081526);
-      border-radius: 16px;
-      padding: 20px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .close {
-      position: absolute;
-      left: 18px;
-      top: 12px;
-      background: transparent;
-      border: 0;
-      color: #fff;
-      font-size: 20px;
-      cursor: pointer;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-    }
-    
-    .close:active {
-      background: rgba(255,255,255,0.1);
-    }
+        /* Party page */
+        .party-page {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg, #03030a, #07102a);
+            z-index: 1400;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            overflow-y: auto;
+        }
+        
+        .party-page.show {
+            display: flex;
+        }
+        
+        .party-card {
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(180deg, #071028, #0b1230);
+            border-radius: 18px;
+            padding: 26px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .party-title {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--neon);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0,255,243,0.5);
+        }
+        
+        .party-subtitle {
+            font-size: 18px;
+            color: #d6d6ffcc;
+            margin-bottom: 24px;
+        }
+        
+        .gift-box {
+            background: linear-gradient(135deg, #0a1a3a, #0c1f42);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .gift-value {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--gold);
+            margin: 10px 0;
+            text-shadow: 0 0 10px rgba(255,215,0,0.3);
+        }
+        
+        .gift-code {
+            font-size: 22px;
+            font-weight: 700;
+            background: rgba(0,0,0,0.3);
+            padding: 12px;
+            border-radius: 10px;
+            margin: 15px 0;
+            letter-spacing: 1px;
+            border: 1px dashed rgba(255,255,255,0.2);
+        }
+        
+        .redeem-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent), #ff2b9e);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            margin: 15px 0;
+            box-shadow: 0 6px 20px rgba(255,77,166,0.3);
+            transition: all 0.3s;
+        }
+        
+        .redeem-btn:hover, .redeem-btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,77,166,0.4);
+        }
+        
+        .terms {
+            font-size: 12px;
+            color: #a0a0c0;
+            margin-top: 20px;
+            line-height: 1.5;
+            text-align: right;
+            direction: rtl;
+        }
+        
+        .terms ul {
+            padding-right: 20px;
+            margin-top: 10px;
+        }
+        
+        .terms li {
+            margin-bottom: 8px;
+        }
 
-    /* Confetti canvas */
-    canvas.confetti {
-      position: fixed;
-      left: 0;
-      top: 0;
-      pointer-events: none;
-      z-index: 1300;
-    }
+        /* Dancing GIF substitute (wiggle emoji) */
+        .wiggle {
+            display: inline-block;
+            font-size: 48px;
+            transform-origin: center;
+            animation: wiggle 1s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+            0% { transform: rotate(-6deg); }
+            50% { transform: rotate(8deg); }
+            100% { transform: rotate(-6deg); }
+        }
+        
+        /* Twins section */
+        .twins-section {
+            margin-top: 20px;
+            text-align: center;
+            padding: 16px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .twins-title {
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .twins-desc {
+            font-size: 13px;
+            color: #cfc9ffcc;
+            margin-bottom: 16px;
+        }
 
-    /* Floating emoji */
-    .emoji {
-      position: absolute;
-      font-size: 30px;
-      opacity: 0;
-      transform: translateY(0);
-      pointer-events: none;
-      z-index: 100;
-    }
-    
-    .emoji.fly {
-      animation: flyUp 2.6s ease-out forwards;
-    }
-    
-    @keyframes flyUp {
-      0% { opacity: 1; transform: translateY(0) scale(0.9); }
-      100% { opacity: 0; transform: translateY(-220px) scale(1.1); }
-    }
+        /* Controls */
+        .controls {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .mini {
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.03);
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            flex: 1;
+            min-width: 120px;
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .mini:active {
+            background: rgba(255,255,255,0.08);
+            transform: scale(0.95);
+        }
 
-    /* Controls */
-    .controls {
-      display: flex;
-      gap: 8px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
-    
-    .mini {
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.03);
-      border: 0;
-      color: #fff;
-      cursor: pointer;
-      flex: 1;
-      min-width: 120px;
-      transition: all 0.2s;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .mini:active {
-      background: rgba(255,255,255,0.08);
-      transform: scale(0.95);
-    }
+        /* Confetti canvas */
+        canvas.confetti {
+            position: fixed;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+            z-index: 1300;
+        }
 
-    /* Big internal page style */
-    .inner-page {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(180deg, #03030a, #07102a);
-      z-index: 1400;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-    
-    .inner-page.show {
-      display: flex;
-    }
-    
-    .inner-card {
-      width: 100%;
-      max-width: 500px;
-      background: linear-gradient(180deg, #071028, #0b1230);
-      border-radius: 18px;
-      padding: 26px;
-      text-align: center;
-      position: relative;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .big-title {
-      font-size: 32px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: var(--neon);
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-    
-    .typechar {
-      display: inline-block;
-      opacity: 0;
-    }
+        /* Floating emoji */
+        .emoji {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            transform: translateY(0);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .emoji.fly {
+            animation: flyUp 2.6s ease-out forwards;
+        }
+        
+        @keyframes flyUp {
+            0% { opacity: 1; transform: translateY(0) scale(0.9); }
+            100% { opacity: 0; transform: translateY(-220px) scale(1.1); }
+        }
+        
+        .close {
+            position: absolute;
+            left: 18px;
+            top: 12px;
+            background: transparent;
+            border: 0;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        
+        .close:active {
+            background: rgba(255,255,255,0.1);
+        }
 
-    /* Dancing GIF substitute (wiggle emoji) */
-    .wiggle {
-      display: inline-block;
-      font-size: 48px;
-      transform-origin: center;
-      animation: wiggle 1s ease-in-out infinite;
-    }
-    
-    @keyframes wiggle {
-      0% { transform: rotate(-6deg); }
-      50% { transform: rotate(8deg); }
-      100% { transform: rotate(-6deg); }
-    }
-    
-    /* Twins section */
-    .twins-section {
-      margin-top: 20px;
-      text-align: center;
-      padding: 16px;
-      background: rgba(255,255,255,0.02);
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .twins-title {
-      font-weight: 800;
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-    
-    .twins-desc {
-      font-size: 13px;
-      color: #cfc9ffcc;
-      margin-bottom: 16px;
-    }
+        /* Notification toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            z-index: 2000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
-    /* Progress bar for loading */
-    .progress-bar {
-      height: 4px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 2px;
-      overflow: hidden;
-      margin-top: 10px;
-    }
-    
-    .progress {
-      height: 100%;
-      background: linear-gradient(90deg, var(--neon), var(--accent));
-      width: 0%;
-      transition: width 0.3s;
-    }
-    
-    /* Notification toast */
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(0,0,0,0.8);
-      color: white;
-      padding: 12px 16px;
-      border-radius: 8px;
-      z-index: 2000;
-      transform: translateY(100px);
-      opacity: 0;
-      transition: all 0.3s;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .toast.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    /* Swipe indicator */
-    .swipe-indicator {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      color: rgba(255,255,255,0.5);
-      font-size: 12px;
-      animation: bounce 2s infinite;
-    }
-    
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-      40% { transform: translateX(-50%) translateY(-10px); }
-      60% { transform: translateX(-50%) translateY(-5px); }
-    }
-    
-    /* Responsive */
-    @media (max-width: 480px) {
-      .card {
-        padding: 16px;
-      }
-      
-      .neon {
-        font-size: 24px;
-      }
-      
-      h1 {
-        font-size: 20px;
-      }
-      
-      .message {
-        font-size: 15px;
-      }
-      
-      .big-title {
-        font-size: 28px;
-      }
-      
-      .modal-inner, .inner-card {
-        padding: 20px 16px;
-      }
-    }
-    
-    @media (max-width: 360px) {
-      .neon {
-        font-size: 22px;
-      }
-      
-      h1 {
-        font-size: 18px;
-      }
-      
-      .glow-btn {
-        padding: 12px 16px;
-        font-size: 15px;
-      }
-    }
-  </style>
+        /* Responsive */
+        @media (max-width: 480px) {
+            .card {
+                padding: 16px;
+            }
+            
+            .neon {
+                font-size: 24px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .message {
+                font-size: 15px;
+            }
+            
+            .party-title {
+                font-size: 28px;
+            }
+            
+            .gift-value {
+                font-size: 40px;
+            }
+            
+            .gift-code {
+                font-size: 18px;
+            }
+            
+            .party-card {
+                padding: 20px 16px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .neon {
+                font-size: 22px;
+            }
+            
+            h1 {
+                font-size: 18px;
+            }
+            
+            .glow-btn {
+                padding: 12px 16px;
+                font-size: 15px;
+            }
+            
+            .party-title {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="bg-elements">
-    <div class="bg-element bg-1"></div>
-    <div class="bg-element bg-2"></div>
-    <div class="bg-element bg-3"></div>
-  </div>
-  
-  <div class="app">
-    <div class="card animate__animated animate__fadeInUp">
-      <div class="neon-wrap">
-        <div class="neon">✨ מזל טוב ג'ולי ✨</div>
-        <h1>מזל טוב ביום הולדת — מראמי</h1>
-        <div class="sub">----אבו ניל----</div>
-        <div class="progress-bar">
-          <div class="progress" id="progress"></div>
+    <div class="bg-elements">
+        <div class="bg-element bg-1"></div>
+        <div class="bg-element bg-2"></div>
+        <div class="bg-element bg-3"></div>
+    </div>
+    
+    <div class="app">
+        <div class="card animate__animated animate__fadeInUp">
+            <div class="neon-wrap">
+                <div class="neon">✨ מזל טוב ג'ולי ✨</div>
+                <h1>מזל טוב ביום הולדת — מרמי</h1>
+                <div class="sub">כרטיס ברכה חמוד, קליל ומלא הפתעות. מתאים גם למובייל כאפליקציה.</div>
+            </div>
+
+            <div class="message">
+                היי ג'ולי היקרה —
+                <br><br>
+                קודם כל, מזל טוב! 🎂
+                <br><br>
+                אני יודע שאנחנו כרגע פרודים — וזה בסדר. אין פה ברכה רומנטית, אלא תודה והערכה אמיתית: תודה על המתנה שעשית לילדים, ניל & אדל — הם פשוט מתים עליך, וזה חשוב לי להדגיש.
+                <br><br>
+                אולי לפעמים יש עצבים — קח/י נשימה, רגע לעצור ו"לשאוף אוויר" — מי לא צריך את זה? אני מאחל/ת לך שקט, צחוק עם הילדים, וימים טובים ופשוטים. בלי יותר מדי דרמות, רק חיבוק של זמן.
+                <div class="twins">ניל & אדל שולחים נשיקות ויגידו: תודה ג'ולי! 🧡</div>
+                <br>
+                בחיוך ובכנות, — רמי (עם קריצה). 😄
+            </div>
+
+            <div class="center-btn">
+                <button id="openGift" class="glow-btn" aria-haspopup="dialog">
+                    <span class="shine" aria-hidden="true"></span>
+                    <span class="text">לחץ כאן — פתחי הפתעה נוצצת</span>
+                </button>
+            </div>
+
+            <div class="gift-card" aria-hidden="false">
+                <div class="gift-cover" id="giftCover">
+                    <div style="font-weight:800">כרטיס ברכה אישי (עם כפתור מרכזי)</div>
+                    <div style="margin-top:8px;color:#d6d6ffcc">לחצי על הכפתור במרכז כדי לחשוף — יש אפקטים, קונפטי ואימוג'ים שירקדו לשמיים.</div>
+                    <div style="margin-top:12px">
+                        <button id="centerCoverBtn" class="cover-btn">לחץ כאן</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="dupVoucher" class="mini">שכפל שובר</button>
+                <button id="openParty" class="mini">פתח מסיבת יום הולדת</button>
+            </div>
+            
+            <div class="twins-section">
+                <div class="twins-title">ניל & אדל</div>
+                <div class="twins-desc">התאומים שולחים המון אהבה והרבה בלגן מתוק.</div>
+                <div style="font-size:48px;" aria-hidden="true"> <span class="wiggle">🤣</span> </div>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <div class="message">
-        היי ג'ולי היקרה —
-        <br><br>
-        קודם כל, מזל טוב! 🎂
-        <br><br>
-        אני יודע שאנחנו כרגע פרודים — וזה בסדר. אין פה ברכה רומנטית, אלא תודה והערכה אמיתית: תודה על המתנה שעשית לילדים, ניל & אדל — הם פשוט מתים עליך, וזה חשוב לי להדגיש.
-        <br><br>
-        אולי לפעמים יש עצבים — קח/י נשימה, רגע לעצור ו"לשאוף אוויר" — מי לא צריך את זה? אני מאחל/ת לך שקט, צחוק עם הילדים, וימים טובים ופשוטים. בלי יותר מדי דרמות, רק חיבוק של זמן.
-        <div class="twins">ניל & אדל שולחים נשיקות ויגידו: תודה ג'ולי! 🧡</div>
-        <br>
-        בחיוך ובכנות, — רמי (עם קריצה). 😄
-      </div>
+    <!-- Confetti canvas -->
+    <canvas class="confetti" id="confettiCanvas"></canvas>
 
-      <div class="center-btn">
-        <button id="openGift" class="glow-btn" aria-haspopup="dialog">
-          <span class="shine" aria-hidden="true"></span>
-          <span class="text">לחץ כאן — פתחי הפתעה נוצצת</span>
-        </button>
-      </div>
-
-      <div class="gift-card" aria-hidden="false">
-        <div class="gift-cover" id="giftCover">
-          <div style="font-weight:800">כרטיס ברכה אישי (עם כפתור מרכזי)</div>
-          <div style="margin-top:8px;color:#d6d6ffcc">לחצי על הכפתור במרכז כדי לחשוף — יש אפקטים, קונפטי ואימוג'ים שירקדו לשמיים.</div>
-          <div style="margin-top:12px">
-            <button id="centerCoverBtn" class="cover-btn">לחץ כאן</button>
-          </div>
+    <!-- Party page -->
+    <div id="partyPage" class="party-page" aria-hidden="true">
+        <div class="party-card">
+            <button class="close" id="closeParty">✕</button>
+            <div class="party-title">מסיבת יום הולדת!</div>
+            <div class="party-subtitle">הפתעה מיוחדת בשבילך ג'ולי!</div>
+            
+            <div class="gift-box">
+                <div style="font-size: 20px; font-weight: 700; color: var(--neon);">גיפט קארד</div>
+                <div class="gift-value">₪400</div>
+                <div class="gift-code">RAMI-400-JULI</div>
+                <a href="https://org.matana4u.com/events/event/coupon-otp" class="redeem-btn" target="_blank">למימוש השובר - לחצי כאן</a>
+            </div>
+            
+            <div style="margin: 20px 0; font-size: 40px;">
+                <span class="wiggle">🎁</span>
+                <span class="wiggle" style="animation-delay: 0.2s;">🎂</span>
+                <span class="wiggle" style="animation-delay: 0.4s;">🎉</span>
+            </div>
+            
+            <div class="terms">
+                <strong>פרטים ותנאים:</strong>
+                <ul>
+                    <li>גיפט קארד למימוש במגוון רשתות ומותגים מובילים בארץ</li>
+                    <li>כולל כפל מבצעים (ללא מבצעי מועדון/צבירת נקודות מועדון)</li>
+                    <li>השימוש בגיפט קארד הוא רב פעמי עד סיום היתרה</li>
+                    <li>תקף ל-12 חודשים ממועד הרכישה</li>
+                    <li>אין כפל מבצעים עם מבצעי מועדון קיים</li>
+                </ul>
+            </div>
         </div>
-      </div>
-
-      <div class="controls">
-        <button id="dupVoucher" class="mini">שכפל שובר</button>
-        <button id="openInner" class="mini">פתח דף פנימי גדול</button>
-      </div>
-      
-      <div class="twins-section">
-        <div class="twins-title">ניל & אדל</div>
-        <div class="twins-desc">התאומים שולחים המון אהבה והרבה בלגן מתוק.</div>
-        <div style="font-size:48px;" aria-hidden="true"> <span class="wiggle">🤣</span> </div>
-      </div>
-      
-      <div class="swipe-indicator">
-        <span>גלול למעלה ליותר הפתעות</span>
-      </div>
     </div>
-  </div>
 
-  <!-- Confetti canvas -->
-  <canvas class="confetti" id="confettiCanvas"></canvas>
-
-  <!-- Modal voucher -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-inner animate__animated animate__zoomIn">
-      <button class="close" id="closeModal">✕</button>
-      <h2 style="margin-top:8px">שובר מתנה — ₪400 לשופינג ותרבות</h2>
-      <div style="font-size:40px;font-weight:900;color:var(--gold);margin-top:6px">₪400</div>
-      <div style="margin-top:10px;color:#d6d6ffcc">מתנה מאת רמי — פשוט הציגי קוד: <strong>RAMI-400-JULI</strong></div>
-      <div style="margin-top:14px">
-        <button id="copyCode" class="mini">העתק קוד</button>
-        <button id="closeAndParty" class="mini">סגור ותראו מסיבה</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Inner big page (letter-by-letter) -->
-  <div id="innerPage" class="inner-page" aria-hidden="true">
-    <div class="inner-card">
-      <button class="close" id="closeInner">✕</button>
-      <div style="margin-bottom:18px">
-        <div class="big-title" id="bigTitle"></div>
-      </div>
-      <div style="font-size:18px;color:#d6d6ffcc;margin-bottom:18px">הנה שובר נוסף בשבילך — שכפול מהיר לזמינות נוספת.</div>
-      <div style="font-size:48px;margin-bottom:12px">👇👇👇</div>
-      <div style="font-weight:800;font-size:20px">קוד לשימוש: <span id="innerCode">RAMI-400-JULI</span></div>
-      <div style="margin-top:18px;font-size:40px"><span class="wiggle">👉</span> https://org.matana4u.com/events/event/coupon-otp</div>
-    </div>
-  </div>
-
-  <div id="emojiRoot" style="position:fixed;left:8px;bottom:20px;z-index:1400;pointer-events:none"></div>
-  
-  <div id="toast" class="toast"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <script>
-    // Initialize PWA features
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then(() => {
-          console.log('Service Worker registered');
-        }).catch(err => {
-          console.log('Service Worker registration failed: ', err);
-        });
-      });
-    }
+    <div id="emojiRoot" style="position:fixed;left:8px;bottom:20px;z-index:1400;pointer-events:none"></div>
     
-    // Add to home screen prompt
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      showToast('ניתן להוסיף את האפליקציה למסך הבית שלך!');
-    });
+    <div id="toast" class="toast"></div>
 
-    const canvas = document.getElementById('confettiCanvas');
-    const conf = confetti.create(canvas, { resize:true, useWorker:true });
-    
-    // DOM elements
-    const openGift = document.getElementById('openGift');
-    const modal = document.getElementById('modal');
-    const closeModal = document.getElementById('closeModal');
-    const copyCode = document.getElementById('copyCode');
-    const closeAndParty = document.getElementById('closeAndParty');
-    const centerBtn = document.getElementById('centerCoverBtn');
-    const emojiRoot = document.getElementById('emojiRoot');
-    const dup = document.getElementById('dupVoucher');
-    const inner = document.getElementById('openInner');
-    const innerPage = document.getElementById('innerPage');
-    const bigTitle = document.getElementById('bigTitle');
-    const innerCode = document.getElementById('innerCode');
-    const closeInner = document.getElementById('closeInner');
-    const progress = document.getElementById('progress');
-    const toast = document.getElementById('toast');
-    
-    // Show toast notification
-    function showToast(message, duration = 3000) {
-      toast.textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, duration);
-    }
-    
-    // Simulate loading progress
-    function simulateProgress() {
-      let width = 0;
-      const interval = setInterval(() => {
-        if (width >= 100) {
-          clearInterval(interval);
-        } else {
-          width += 5;
-          progress.style.width = width + '%';
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        const canvas = document.getElementById('confettiCanvas');
+        const conf = confetti.create(canvas, { resize:true, useWorker:true });
+        
+        // DOM elements
+        const openGift = document.getElementById('openGift');
+        const centerBtn = document.getElementById('centerCoverBtn');
+        const emojiRoot = document.getElementById('emojiRoot');
+        const dup = document.getElementById('dupVoucher');
+        const openParty = document.getElementById('openParty');
+        const partyPage = document.getElementById('partyPage');
+        const closeParty = document.getElementById('closeParty');
+        const toast = document.getElementById('toast');
+        
+        // Show toast notification
+        function showToast(message, duration = 3000) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, duration);
         }
-      }, 100);
-    }
-    
-    // Enhanced party effects
-    function partyBurst(){
-      conf({ particleCount: 160, spread: 180, origin: { x:0.5, y:0.35 } });
-      setTimeout(()=> conf({ particleCount: 100, spread: 220, origin:{x:0.25,y:0.25}}), 200);
-      setTimeout(()=> conf({ particleCount: 100, spread: 220, origin:{x:0.75,y:0.2}}), 420);
-      
-      // Add screen shake effect
-      document.body.style.transform = 'translateX(4px)';
-      setTimeout(() => {
-        document.body.style.transform = 'translateX(-4px)';
-        setTimeout(() => {
-          document.body.style.transform = 'translateX(0)';
-        }, 50);
-      }, 50);
-    }
+        
+        // Enhanced party effects
+        function partyBurst(){
+            conf({ particleCount: 160, spread: 180, origin: { x:0.5, y:0.35 } });
+            setTimeout(()=> conf({ particleCount: 100, spread: 220, origin:{x:0.25,y:0.25}}), 200);
+            setTimeout(()=> conf({ particleCount: 100, spread: 220, origin:{x:0.75,y:0.2}}), 420);
+            
+            // Add screen shake effect
+            document.body.style.transform = 'translateX(4px)';
+            setTimeout(() => {
+                document.body.style.transform = 'translateX(-4px)';
+                setTimeout(() => {
+                    document.body.style.transform = 'translateX(0)';
+                }, 50);
+            }, 50);
+        }
 
-    function fireworks(){
-      let i=0; 
-      const max=8;
-      const t = setInterval(()=>{ 
-        conf({ 
-          particleCount: 30, 
-          angle: 60 + Math.random()*60, 
-          spread: 40, 
-          startVelocity: 60 + Math.random()*40, 
-          origin: {x: Math.random(), y: Math.random()*0.45 } 
-        }); 
-        i++; 
-        if(i>=max) clearInterval(t); 
-      }, 200);
-    }
+        function fireworks(){
+            let i=0; 
+            const max=8;
+            const t = setInterval(()=>{ 
+                conf({ 
+                    particleCount: 30, 
+                    angle: 60 + Math.random()*60, 
+                    spread: 40, 
+                    startVelocity: 60 + Math.random()*40, 
+                    origin: {x: Math.random(), y: Math.random()*0.45 } 
+                }); 
+                i++; 
+                if(i>=max) clearInterval(t); 
+            }, 200);
+        }
 
-    function spawnEmoji(ch){
-      const e = document.createElement('div'); 
-      e.className='emoji'; 
-      e.style.right = Math.floor(40 + Math.random()*120)+'px'; 
-      e.style.bottom='20px'; 
-      e.innerText = ch; 
-      emojiRoot.appendChild(e); 
-      requestAnimationFrame(()=> e.classList.add('fly')); 
-      setTimeout(()=> e.remove(), 2600);
-    }
-    
-    // Haptic feedback simulation
-    function hapticFeedback() {
-      if (navigator.vibrate) {
-        navigator.vibrate(50);
-      }
-    }
+        function spawnEmoji(ch){
+            const e = document.createElement('div'); 
+            e.className='emoji'; 
+            e.style.right = Math.floor(40 + Math.random()*120)+'px'; 
+            e.style.bottom='20px'; 
+            e.innerText = ch; 
+            emojiRoot.appendChild(e); 
+            requestAnimationFrame(()=> e.classList.add('fly')); 
+            setTimeout(()=> e.remove(), 2600);
+        }
+        
+        // Haptic feedback simulation
+        function hapticFeedback() {
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }
 
-    // Open main golden button -> show modal after small pause + party
-    openGift.addEventListener('click', ()=>{
-      hapticFeedback();
-      // Sparkle on the button handled by CSS shine
-      setTimeout(()=>{
-        modal.classList.add('show'); 
-        modal.setAttribute('aria-hidden','false');
-      }, 520);
-      partyBurst();
-      setTimeout(fireworks,140);
-      // Emojis floating
-      const emojis=['🎉','✨','💖','🎈','🪩','🤣']; 
-      let r=0; 
-      const it=setInterval(()=>{ 
-        spawnEmoji(emojis[Math.floor(Math.random()*emojis.length)]); 
-        r++; 
-        if(r>10) clearInterval(it); 
-      },160);
-    });
+        // Open main golden button -> show party page after small pause + party
+        openGift.addEventListener('click', ()=>{
+            hapticFeedback();
+            // Sparkle on the button handled by CSS shine
+            setTimeout(()=>{
+                partyPage.classList.add('show'); 
+                partyPage.setAttribute('aria-hidden','false');
+            }, 520);
+            partyBurst();
+            setTimeout(fireworks,140);
+            // Emojis floating
+            const emojis=['🎉','✨','💖','🎈','🪩','🤣']; 
+            let r=0; 
+            const it=setInterval(()=>{ 
+                spawnEmoji(emojis[Math.floor(Math.random()*emojis.length)]); 
+                r++; 
+                if(r>10) clearInterval(it); 
+            },160);
+        });
 
-    // Center cover button triggers full modal and fun
-    centerBtn.addEventListener('click', ()=>{
-      hapticFeedback();
-      partyBurst(); 
-      setTimeout(fireworks,200);
-      // More emojis
-      const em=['🎊','🥳','🎉','✨']; 
-      for(let i=0;i<12;i++){ 
-        setTimeout(()=> spawnEmoji(em[i%em.length]), i*120); 
-      }
-      setTimeout(()=>{ 
-        modal.classList.add('show'); 
-        modal.setAttribute('aria-hidden','false'); 
-      }, 680);
-    });
+        // Center cover button triggers party page and fun
+        centerBtn.addEventListener('click', ()=>{
+            hapticFeedback();
+            partyBurst(); 
+            setTimeout(fireworks,200);
+            // More emojis
+            const em=['🎊','🥳','🎉','✨']; 
+            for(let i=0;i<12;i++){ 
+                setTimeout(()=> spawnEmoji(em[i%em.length]), i*120); 
+            }
+            setTimeout(()=>{ 
+                partyPage.classList.add('show'); 
+                partyPage.setAttribute('aria-hidden','false'); 
+            }, 680);
+        });
 
-    closeModal.addEventListener('click', ()=>{ 
-      modal.classList.remove('show'); 
-      modal.setAttribute('aria-hidden','true'); 
-      conf({ particleCount:50, spread:120, origin:{x:0.5,y:0.45} }); 
-    });
-    
-    closeAndParty.addEventListener('click', ()=>{ 
-      closeModal.click(); 
-      partyBurst(); 
-      fireworks(); 
-    });
+        // Open party page directly
+        openParty.addEventListener('click', ()=>{ 
+            hapticFeedback();
+            partyPage.classList.add('show'); 
+            partyPage.setAttribute('aria-hidden','false'); 
+            partyBurst();
+            setTimeout(fireworks, 200);
+        });
+        
+        closeParty.addEventListener('click', ()=>{ 
+            partyPage.classList.remove('show'); 
+            partyPage.setAttribute('aria-hidden','true'); 
+            conf({ particleCount:50, spread:120, origin:{x:0.5,y:0.45} }); 
+        });
 
-    copyCode.addEventListener('click', ()=>{ 
-      hapticFeedback();
-      navigator.clipboard && navigator.clipboard.writeText(innerCode.innerText).then(()=>{ 
-        copyCode.innerText='הוקלד!'; 
-        showToast('הקוד הועתק!');
-        setTimeout(()=> copyCode.innerText='העתק קוד',1200); 
-      }); 
-    });
+        // Duplicate voucher - show toast
+        dup.addEventListener('click', ()=>{
+            hapticFeedback();
+            showToast('השובר שוכפל! ניתן להשתמש בקוד: RAMI-400-JULI');
+            partyBurst();
+        });
 
-    // Duplicate voucher - clones modal content to a new modal instance
-    dup.addEventListener('click', ()=>{
-      hapticFeedback();
-      const clone = modal.cloneNode(true); 
-      clone.style.zIndex = 1500; 
-      document.body.appendChild(clone); 
-      clone.classList.add('show'); 
-      setTimeout(()=>{ 
-        partyBurst(); 
-        fireworks(); 
-      },100);
-      // Remove clone after some seconds
-      setTimeout(()=>{ 
-        clone.classList.remove('show'); 
-        setTimeout(()=> clone.remove(),400); 
-      }, 4200);
-    });
+        // Accessibility: esc closes things
+        document.addEventListener('keydown', (e)=>{ 
+            if(e.key==='Escape'){ 
+                if(partyPage.classList.contains('show')) closeParty.click(); 
+            } 
+        });
 
-    // Open inner full page with letter-by-letter big title and emoji finger
-    inner.addEventListener('click', ()=>{ 
-      hapticFeedback();
-      innerPage.classList.add('show'); 
-      innerPage.setAttribute('aria-hidden','false'); 
-      playTitle('היי ג\'ולי — פתיחה מהירה!'); 
-    });
-    
-    closeInner.addEventListener('click', ()=>{ 
-      innerPage.classList.remove('show'); 
-      innerPage.setAttribute('aria-hidden','true'); 
-      bigTitle.innerHTML=''; 
-    });
-
-    function playTitle(text){ 
-      bigTitle.innerHTML=''; 
-      const chars = text.split(''); 
-      chars.forEach((c,i)=>{ 
-        const span = document.createElement('span'); 
-        span.className='typechar'; 
-        span.innerText = c; 
-        bigTitle.appendChild(span); 
-        setTimeout(()=>{ 
-          span.style.opacity=1; 
-          span.style.transform='translateY(0)'; 
-          span.style.transition='all .06s linear'; 
-        }, i*75); 
-      }); 
-    }
-
-    // Accessibility: esc closes things
-    document.addEventListener('keydown', (e)=>{ 
-      if(e.key==='Escape'){ 
-        if(modal.classList.contains('show')) closeModal.click(); 
-        if(innerPage.classList.contains('show')) closeInner.click(); 
-      } 
-    });
-
-    // Small initial gentle confetti
-    window.addEventListener('load', ()=>{ 
-      simulateProgress();
-      setTimeout(()=> conf({ particleCount: 40, spread: 120, origin:{x:0.5,y:0.18} }), 520); 
-    });
-    
-    // Touch and swipe enhancements
-    let startY;
-    document.addEventListener('touchstart', (e) => {
-      startY = e.touches[0].clientY;
-    });
-    
-    document.addEventListener('touchend', (e) => {
-      if (!startY) return;
-      
-      const endY = e.changedTouches[0].clientY;
-      const diff = startY - endY;
-      
-      // If swiped up significantly
-      if (diff > 50) {
-        // Trigger some effect when swiping up
-        conf({ particleCount: 20, spread: 70, origin: { x: Math.random(), y: 0.9 } });
-      }
-      
-      startY = null;
-    });
-    
-    // Prevent zoom on double tap
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', (e) => {
-      const now = (new Date()).getTime();
-      if (now - lastTouchEnd <= 300) {
-        e.preventDefault();
-      }
-      lastTouchEnd = now;
-    }, false);
-  </script>
+        // Small initial gentle confetti
+        window.addEventListener('load', ()=>{ 
+            setTimeout(()=> conf({ particleCount: 40, spread: 120, origin:{x:0.5,y:0.18} }), 520); 
+        });
+        
+        // Touch and swipe enhancements
+        let startY;
+        document.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            if (!startY) return;
+            
+            const endY = e.changedTouches[0].clientY;
+            const diff = startY - endY;
+            
+            // If swiped up significantly
+            if (diff > 50) {
+                // Trigger some effect when swiping up
+                conf({ particleCount: 20, spread: 70, origin: { x: Math.random(), y: 0.9 } });
+            }
+            
+            startY = null;
+        });
+    </script>
 </body>
 </html>
