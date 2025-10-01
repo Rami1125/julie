@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>מובייל - כרטיס ברכה מותאם אפליקציה</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#f3f6fb">
+  <style>
+    :root{
+      --bg:#f3f6fb; --card:#ffffffcc; --glass:rgba(255,255,255,0.6);
+      --accent:#0077ff; --accent-2:#00c6ff; --soft:#6b7280; --gold:#f6c84c;
+      --radius:18px;
+    }
+    html,body{height:100%;margin:0;font-family:'Rubik',system-ui,Arial;background:linear-gradient(180deg,#fbfdff,#e9eef8);color:#0b1220;direction:rtl}
+
+    /* app container - mobile-first full screen */
+    .app{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:18px}
+
+    /* top bar */
+    .topbar{width:100%;max-width:520px;display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+    .logo{font-weight:800;color:var(--accent);letter-spacing:1px}
+    .small{color:var(--soft);font-size:13px}
+
+    /* main card (glass) */
+    .card{width:100%;max-width:520px;background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 12px 36px rgba(16,24,40,0.12);backdrop-filter:blur(8px);border:1px solid rgba(12,20,40,0.04)}
+
+    .neon{font-size:22px;font-weight:900;color:var(--accent);text-shadow:0 0 8px rgba(0,119,255,0.16)}
+    .subtitle{color:var(--soft);font-size:14px;margin-top:6px}
+
+    .greeting{margin-top:12px;font-size:16px;line-height:1.6;color:#0b1220}
+    .greeting .twins{margin-top:8px;color:#b64b4b}
+
+    /* action area */
+    .actions{display:flex;gap:12px;margin-top:18px}
+    .btn{flex:1;padding:12px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 8px 24px rgba(0,118,255,0.12)}
+    .btn-ghost{background:transparent;border:2px solid rgba(12,20,40,0.06);color:var(--accent);}
+
+    /* hidden voucher area (overlay inside same card) */
+    .voucher-wrap{margin-top:16px;position:relative}
+    .voucher-cover{background:linear-gradient(180deg,#f8fbff,#f1f6ff);padding:18px;border-radius:12px;text-align:center;border:1px solid rgba(6,24,66,0.04)}
+    .voucher-code{font-weight:800;font-size:20px;color:var(--gold);margin-top:8px}
+    .voucher-hidden{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.85));border-radius:12px;backdrop-filter:blur(6px);}
+    .reveal-btn{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,#ffd97a,#ffd700);font-weight:800;cursor:pointer}
+
+    /* confetti canvas full screen */
+    canvas.confetti{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:2200}
+
+    /* little sparkle text */
+    .spark{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,0.7),rgba(255,255,255,0.6));box-shadow:0 6px 20px rgba(243,198,76,0.08);font-weight:700}
+
+    /* responsive safe area for notch phones */
+    @media (max-width:420px){.app{padding:12px}.card{padding:14px}.neon{font-size:18px}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="logo">מתנה מרמי</div>
+      <div class="small">מזל טוב ג'ולי 🎉</div>
+    </div>
+
+    <main class="card" role="main" aria-labelledby="title">
+      <div id="title" class="neon">מזל טוב ליום הולדת — ג'ולי</div>
+      <div class="subtitle">חגיגה חמודה, נעימה ומותאמת מובייל</div>
+
+      <div class="greeting">
+        היי ג'ולי היקרה,
+        <br><br>
+        מזל טוב! אני מעריך את המתנה ששלחת לניל & אדל — הם שמחים מאוד. גם אם אנחנו פרודים כרגע, רציתי לומר תודה וכמה מילים חמות: קחי רגע, שאפי הרבה אוויר, תני לעצמך לנשום — זה בסדר. מאחל/ת לך ימים רגועים, שמחה קטנה כל יום, וחיבוק מהמרחק. 😄
+        <div class="twins">ניל & אדל: מיליונים של נשיקות ושוברים מעוגת הלב 💛</div>
+      </div>
+
+      <div class="actions">
+        <button id="reveal" class="btn btn-primary">גלה את השובר ✨</button>
+        <button id="share" class="btn btn-ghost">שתף</button>
+      </div>
+
+      <div class="voucher-wrap" aria-live="polite">
+        <div class="voucher-cover" id="voucherCover">
+          <div style="font-weight:800">שובר לשופינג ותרבות</div>
+          <div style="font-size:13px;color:var(--soft);margin-top:6px">לחצי על "גלה" כדי לפתוח את המתנה עם אפקטים</div>
+          <div class="voucher-hidden" id="hiddenOverlay" style="display:flex;">
+            <button id="openReveal" class="reveal-btn">לחץ כאן</button>
+          </div>
+          <div class="voucher-code" id="voucherCode" style="display:none">RAMI-400-JULI</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <canvas class="confetti" id="confetti"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    const conf = confetti.create(document.getElementById('confetti'), { resize:true, useWorker:true });
+    const reveal = document.getElementById('reveal');
+    const hidden = document.getElementById('hiddenOverlay');
+    const voucher = document.getElementById('voucherCode');
+    const openReveal = document.getElementById('openReveal');
+    const share = document.getElementById('share');
+
+    function burst(){ conf({ particleCount:140, spread:160, origin:{x:0.5,y:0.3} }); setTimeout(()=> conf({ particleCount:80, spread:200, origin:{x:0.3,y:0.2}}),220); setTimeout(()=> conf({ particleCount:80, spread:200, origin:{x:0.7,y:0.2}}),420); }
+
+    reveal.addEventListener('click', ()=>{ // reveal overlay button visually pulses then opens
+      hidden.style.display='flex'; hidden.querySelector('button').focus(); hidden.querySelector('button').classList.add('pulse'); setTimeout(()=> hidden.querySelector('button').classList.remove('pulse'),700);
+    });
+
+    openReveal.addEventListener('click', ()=>{
+      burst(); // party
+      // show code with gentle reveal
+      hidden.style.display='none'; voucher.style.display='block';
+      // small emoji float
+      for(let i=0;i<8;i++){ setTimeout(()=> spawnEmoji(['🎉','✨','🎈','🪩','💖'][i%5]), i*140); }
+    });
+
+    function spawnEmoji(ch){ const root = document.body; const e = document.createElement('div'); e.textContent = ch; e.style.position='fixed'; e.style.left = (40 + Math.random()*60)+'%'; e.style.bottom='10%'; e.style.fontSize='28px'; e.style.pointerEvents='none'; e.style.zIndex=3000; root.appendChild(e); requestAnimationFrame(()=>{ e.style.transition='transform 1.8s ease-out, opacity 1.8s'; e.style.transform='translateY(-260px) scale(1.1)'; e.style.opacity='0'; }); setTimeout(()=> e.remove(),2000); }
+
+    share.addEventListener('click', ()=>{
+      if(navigator.share){ navigator.share({ title: 'מזל טוב ג\'ולי', text: 'שובר ועדכוני מתנה מרמי', url: location.href }).catch(()=>{});
+      } else { alert('שתף את הקישור ידנית'); }
+    });
+  </script>
+</body>
+</html>
